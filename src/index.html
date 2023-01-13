@@ -1,8 +1,18 @@
 <html lang="en-US">
-  <head>
-    <title></title>
-  </head>
-  <body>
-    <script type="text/javascript" src="bundle.js"></script>
-  </body>
+<head>
+  <title>Currency Exchange</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Get Your Exchange Rates Here! </h1>
+    <p>To get your exchange rates please input the amount in US($) that you would like converted. Then from the dropdown menu select the currency you would like your money to be exchanged for!</p>
+    <form>
+      <label for="usDollar">Enter your US($):</label>
+      <input id="usDollar" type="text" name="usDollar">
+      <button type="submit" class="btn-success" id="usInput">See current exchange rates!</button>
+    </form>
+    <p id="showresponse"></p>
+  </div>
+  <script type="text/javascript" src="bundle.js"></script>
+</body>
 </html>
