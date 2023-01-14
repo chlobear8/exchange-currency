@@ -34,7 +34,10 @@ function handleFormSubmission(event) {
   window.addEventListener("load", function() {
     CurrencyService.fetchSupportedCurrencies().then(response => {
       let dropdown = document.getElementById('batchSelect');
-      
+      const appendable = response['supported_codes'].map(currency => {
+        return `<option value = "${currency[0]}">${currency[1]}</option>`;
+      })
+      dropdown.innerHTML = appendable.join("")
     })
     document.querySelector('form').addEventListener("submit", handleFormSubmission);
   });
