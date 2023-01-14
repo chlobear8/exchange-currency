@@ -5,41 +5,39 @@ import CurrencyService from "./currency-service";
 
 //Business Logic
 
-async function getExchange(currency) {
-  CurrencyService.getExchange(currency)
-  const response = await CurrencyService.getExchange(currency);
-    if (response.main) {
-      printElements(response, currency);
-    } else {
-      printError(response, currency);
-    }
+async function getExchange(amount, currency) {
+  const response = await CurrencyService.getExchange(amount, currency);
+  if (response) {
+    printElements(response, amount, currency);
+  }
 }
 
 //UI Logic
 
-function printElements(reponse, currency) {
-  document.querySelector('#showResponse').innerText = `The currency exchange rate of ${currency} is ${response.conversion_rates} and the amount in US($) is ${currency * response.conversion_rates}.`;
+function printElements(convertedAmount, usdAmount, currency) {
+  document.querySelector('#showResponse').innerText = `The currency exchange rate of USD ${usdAmount} to ${currency} is ${convertedAmount}.`;
 }
 
-function printError(error, currency) {
-  document.querySelector('#showResponse').innerText = `There was an error accessing the currency data for ${currency}: ${error}.`;
-}
+// function printError(error, currency) {
+//   document.querySelector('#showResponse').innerText = `There was an error accessing the currency data for ${currency}: ${error}.`;
+// }
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const currency = document.querySelector('usDollar').value;
-  document.querySelector('#usDollar').value = null;
-  getExchange(currency);
-  
-  window.addEventListener("load", function() {
-    CurrencyService.fetchSupportedCurrencies().then(response => {
-      let dropdown = document.getElementById('batchSelect');
-      const appendable = response['supported_codes'].map(currency => {
-        return `<option value = "${currency[0]}">${currency[1]}</option>`;
-      })
-      dropdown.innerHTML = appendable.join("")
-    })
-    document.querySelector('form').addEventListener("submit", handleFormSubmission);
-  });
+  const amount = document.getElementById('usDollar').value;
+  //document.getElementById('#usDollar').value = null;
+  const currency = document.getElementById('batchSelect').value;
+  getExchange(amount, currency);
 }
+window.addEventListener("load", function () {
+  CurrencyService.fetchSupportedCurrencies().then(response => {
+    let dropdown = document.getElementById('batchSelect');
+    const appendable = response['supported_codes'].map(currency => {
+      return `<option value = "${currency[0]}">${currency[1]}</option>`;
+    })
+    dropdown.innerHTML = appendable.join("")
+  })
+  document.querySelector('form').addEventListener("submit", handleFormSubmission);
+});
+
 
