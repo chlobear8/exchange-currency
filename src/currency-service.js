@@ -1,5 +1,8 @@
 export default class CurrencyService {
   static async getExchange(amount, targetCode) {
+    if (isNaN(amount)) {
+      throw new Error("Amount entered needs to be a number!");
+    }
     try {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${targetCode}/${amount}`);
       const jsonifiedResponse = await response.json();

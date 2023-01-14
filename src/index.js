@@ -6,9 +6,11 @@ import CurrencyService from "./currency-service";
 //Business Logic
 
 async function getExchange(amount, currency) {
-  const response = await CurrencyService.getExchange(amount, currency);
-  if (response) {
+  try {
+    const response = await CurrencyService.getExchange(amount, currency);
     printElements(response, amount, currency);
+  } catch(error) {
+    printError(error);
   }
 }
 
@@ -18,9 +20,9 @@ function printElements(convertedAmount, usdAmount, currency) {
   document.querySelector('#showResponse').innerText = `The currency exchange rate of USD ${usdAmount} to ${currency} is ${convertedAmount}.`;
 }
 
-// function printError(error, currency) {
-//   document.querySelector('#showResponse').innerText = `There was an error accessing the currency data for ${currency}: ${error}.`;
-// }
+function printError(error, currency) {
+  document.querySelector('#showResponse').innerText = `There was an error accessing the currency data for ${currency}: ${error}.`;
+}
 
 function handleFormSubmission(event) {
   event.preventDefault();
