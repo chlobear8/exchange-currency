@@ -25,6 +25,8 @@ By using Currency Exchange you are able to input any numerical value into the si
 * Build the project using webpack with $ npm run build.
 * Start a development server with $ npm run start.
 * Lint JS files in the src folder with $ npm run lint.
+* Acquire API Key from <https://www.exchangerate-api.com/docs/overview>
+* Add API Key to .env file.
 * Run tests with Jest using $ npm run test (no current tests). 
 * Open in live server using $ npm run start.
 
