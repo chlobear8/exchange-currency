@@ -2,7 +2,7 @@
 
 #### By Chloe O'Neil
 
-#### _{Brief description of application}_
+#### Currency Exchange takes in a USD input and allows users to choose a different currency and see current exchange rates.
 
 ## Technologies Used
 
@@ -10,11 +10,12 @@
 * HTML
 * CSS
 * Jest
-* 
+* webpack
+* Bootstrap
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+By using Currency Exchange you are able to input any numerical value into the site and choose from any of the listed currencies from the dropdown menu. After clicking the submit button you will see what your inputted amount would equal in the chosen currency with up to date currency exchange rates.<https://github.com/chlobear8/exchange-currency>.
 
 ## Setup/Installation Requirements
 
@@ -24,18 +25,16 @@ _{This is a detailed description of your application. Give as much detail as nee
 * Build the project using webpack with $ npm run build.
 * Start a development server with $ npm run start.
 * Lint JS files in the src folder with $ npm run lint.
-* Run tests with Jest using $ npm run test. 
-* Open js/index.html in your browser.
+* Run tests with Jest using $ npm run test (no current tests). 
+* Open in live server using $ npm run start.
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* No known bugs
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+Please contact me with any questions, comments or concerns at <chloesporri@yahoo.com>.
 
-Copyright (c) _date_ _Chloe O'Neil_
+Copyright (c) _01.14.23_ _Chloe O'Neil_
