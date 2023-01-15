@@ -36,9 +36,9 @@ window.addEventListener("load", function () {
     let dropdown = document.getElementById('batchSelect');
     const appendable = response['supported_codes'].map(currency => {
       return `<option value = "${currency[0]}">${currency[1]}</option>`;
-    })
-    dropdown.innerHTML = appendable.join("")
-  })
+    });
+    dropdown.innerHTML = appendable.join("");
+  });
   document.querySelector('form').addEventListener("submit", handleFormSubmission);
 });
 
